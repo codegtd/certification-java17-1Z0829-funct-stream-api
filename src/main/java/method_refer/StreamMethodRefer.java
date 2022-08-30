@@ -1,3 +1,5 @@
+package method_refer;
+
 import java.util.stream.Stream;
 
 public class StreamMethodRefer {
