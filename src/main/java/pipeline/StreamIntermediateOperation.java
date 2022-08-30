@@ -1,24 +1,11 @@
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.ToString;
+package pipeline;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Stream;
 
-@Getter
-@ToString
-class Person {
-  private String name;
-
-  Person(String name) {
-    System.out.println("Instantiating " + name);
-    this.name = name;
-  }
-}
-
-public class StreamPipeline {
+public class StreamIntermediateOperation {
 
   private static Person getNewPerson() {
 
@@ -77,22 +64,7 @@ public class StreamPipeline {
       ║ stream3.forEach((s) -> System.out.println(s));║
       ╚═══════════════════════════════════════════════╝*/
 
-    /*╔══════════════════════════════════╗
-      ║        TERMINAL OPERATION        ║
-      ╠══════════════════════════════════╣
-      ║ SHORT-CIRCUIT - OK - Aaron found ║
-      ╚══════════════════════════════════╝*/
-    Stream<Person> infinit = Stream.generate(() -> getNewPerson());
-    show("Found Aaron: " + infinit.anyMatch((s) -> s.getName().equals("Aaron")));
 
-    /*╔══════════════════════════════════════════╗
-      ║            TERMINAL OPERATION            ║
-      ╠══════════════════════════════════════════╣
-      ║ SHORT-CIRCUIT - NOT-OK - Aaron not found ║
-      ║     INFINITY EXECUTION WILL HAPPENS      ║
-      ╚══════════════════════════════════════════╝*/
-    Stream<Person> infinit2 = Stream.generate(() -> getNewPersonNoAaron());
-    show("Not Found Aaron: " + infinit2.anyMatch((s) -> s.getName().equals("Aaron")));
   }
 
   private static void show(String txt) {

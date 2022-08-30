@@ -1,8 +1,10 @@
+package pipeline;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class StreamCreationSource {
+public class StreamCreationOperation {
   public static void main(String[] args) {
 
     String argss = (args != null && args.length > 0) ? "First" : null;
