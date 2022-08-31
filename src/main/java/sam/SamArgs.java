@@ -1,3 +1,5 @@
+package sam;
+
 interface MyInterface {  String doSomething(String s);  }
 
 class MyClass implements MyInterface {
@@ -11,7 +13,7 @@ public class SamArgs {
     runSam((s) -> "2.  unnamed " + s);
     runSam(new MyClass()::doSomething);
     runSam(SamArgs.staticReturnInterface());
-//    runSam(SamArgs::staticReturnInterface);
+//    runSam(sam.SamArgs::staticReturnInterface);
   }
 
   private static void runSam(MyInterface i) {
